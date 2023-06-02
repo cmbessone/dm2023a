@@ -112,7 +112,7 @@ AgregarVariables_IntraMes  <- function( dataset )
     #creo un tipo cliente que tenga en cuenta cuando gasta mas de lo gana
   dataset[  , vfe_tipocliente := vfe_gasto_mas ]
   dataset[ vfe_gasto_mas < 0 , vfe_tipocliente := 0 ] #gasto menos de lo que gana
-  dataset[ vfe_gasto_mas = 1 , vfe_tipocliente := 1 ] #gasto todo de lo que gana
+  dataset[ vfe_gasto_mas == 1 , vfe_tipocliente := 1 ] #gasto todo de lo que gana
   dataset[ vfe_gasto_mas > 0 , vfe_tipocliente := 2 ] #gasto mas de lo que gana
   
   dataset[ , vfe_gasto_pago := vmr_mpagado / vmr_mconsumototal ] #ratio de ratio gasto mas de lo que gana
